@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.io Client</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>Socket.io Client</h1>
+
+    <script>
+      // Connect to the socket.io server
+      const socket = io("http://localhost:3002");
+
+      // 1. Receive a string from the server
+      socket.emit("string", "Hello, server!", (data) => {
+        console.log("Server response:", data);
+      });
+
+      // 2. Receive an object from the server
+      socket.emit("json", "Hello, server!", (data) => {
+        console.log("Server response:", data);
+      });
+    </script>
+  </body>
+</html>
